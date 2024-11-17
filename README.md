@@ -1,4 +1,4 @@
-# sdp-project
+# Software Design Patterns Project
 
 This project is about Elderly Care Place. 
 It's Team 1's project for the subject of Software Design Patterns.
