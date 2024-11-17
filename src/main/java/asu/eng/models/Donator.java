@@ -12,6 +12,7 @@ public class Donator {
 
 //        this.donation = // use dbObject to get the data of normalVisit field
 
+        DonationBehaviour donationBehaviour = new MoneyDonation(); // default implementation
 
     }
 
@@ -21,7 +22,8 @@ public class Donator {
     }
 
     public boolean makeDonation(String date, double amount. int elderId) {
-
+        donationBehaviour.donate();
+        // rest of the donation logic here
     }
 
     public Donation getDonation(int donationId) {
