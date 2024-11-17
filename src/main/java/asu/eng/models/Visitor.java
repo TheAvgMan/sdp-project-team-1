@@ -1,12 +1,14 @@
 package asu.eng.models;
 
 public class Visitor extends User{
-    private NormalVisit normalVisit;
+    private NormalVisit particularVisit;
+    private NormalVisit[] allVisits;
     private static databaseObject dbObject;
 
     public Visitor(int id) {
         super(dbObject = getDBObject(id));
-        // make a database request here to fetch Visitor
+
+
 //        this.normalVisit = // use dbObject to get the data of normalVisit field
 
 
@@ -17,7 +19,8 @@ public class Visitor extends User{
 //        return object of databaseObject type;
     }
 
-    public NormalVisit makeNormalVisit(String date, String time. int elderId) {
+
+    public boolean makeNormalVisit(String date, String time. int elderId) {
 
     }
 
@@ -25,11 +28,28 @@ public class Visitor extends User{
 
     }
 
-    public NormalVisit updateNormalVisit(int visitId, String date, String time. int elderId) {
+    public NormalVisit[] getAllVisits() {
+
+    }
+
+    public boolean updateNormalVisit(int visitId, String date, String time. int elderId) {
 
     }
 
     public boolean cancelNormalVisit(int visitId) {
+
+    }
+
+
+    public static boolean create(String name, int age) {
+
+    }
+
+    public static boolean update(int id, String name, int age) {
+
+    }
+
+    public static boolean delete(int id) {
 
     }
 }

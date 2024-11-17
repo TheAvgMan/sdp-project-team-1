@@ -1,17 +1,26 @@
 package asu.eng.models;
 
 public class Donator {
-    private Donation donation;
-    private User previousUserAddOn;
+    private Donation particularDonation;
+    private Donation[] allDonations;
     private DonationBehaviour donationBehaviour;
+    private static databaseObject dbObject;
 
-    public Donator(User previousUserAddOn) {
-        // make a database request here to fetch Visitor
+    public Donator(int id) {
+        super(dbObject = getDBObject(id));
 
-        this.previousUserAddOn = previousUserAddOn;
+
+//        this.donation = // use dbObject to get the data of normalVisit field
+
+
     }
 
-    public Donation makeDonation(String date, double amount. int elderId) {
+    private static databaseObject getDBObject(int id) {
+        // make a database request here to fetch Donator
+//        return object of databaseObject type;
+    }
+
+    public boolean makeDonation(String date, double amount. int elderId) {
 
     }
 
@@ -19,11 +28,28 @@ public class Donator {
 
     }
 
-    public Donation updateDonation(int donationId, String date, double amount. int elderId) {
+    public Donation[] getAllDonations() {
+
+    }
+
+    public boolean updateDonation(int donationId, String date, double amount. int elderId) {
 
     }
 
     public boolean cancelDonation(int donationId) {
+
+    }
+
+
+    public static boolean create(String name, int age) {
+
+    }
+
+    public static boolean update(int id, String name, int age) {
+
+    }
+
+    public static boolean delete(int id) {
 
     }
 }

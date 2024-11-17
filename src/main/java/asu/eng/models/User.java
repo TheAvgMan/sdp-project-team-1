@@ -12,27 +12,27 @@ public abstract class User {
 //        this.age = // the id field coming from the database object;
     }
 
-    protected static boolean create(String name, int age) {
-        // code here to create user in database
-
-
-
-        return false;
+    public int getId() {
+        return id;
     }
 
-    protected static boolean update(int id, String name, int age) {
-        // code here to update user in database
-
-
-
-        return false;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    protected static boolean delete(int id) {
-        // code here to delete user in database
+    public String getName() {
+        return name;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 
+    public int getAge() {
+        return age;
+    }
 
-        return false;
+    public void setAge(int age) {
+        this.age = age;
     }
 }
