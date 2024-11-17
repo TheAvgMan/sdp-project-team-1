@@ -16,5 +16,14 @@ public class Main {
         String medicalVisitTime = "10:00 AM";
         int elderId = 123; // Example Elder ID
         String medicalVisitStatus = "Scheduled";
+
+        MedicalVisit newMedicalVisit = doctor.makeMedicalVisit(medicalVisitDate, medicalVisitTime, elderId, medicalVisitStatus);
+        System.out.println("New medical visit created with ID: " + newMedicalVisit.getId());
+
+        // Retrieve and update the medical visit
+        int visitId = newMedicalVisit.getId();
+        MedicalVisit retrievedVisit = doctor.getMedicalVisit(visitId);
+        System.out.println("Retrieved Medical Visit: " + retrievedVisit);
+
     }
 }
