@@ -25,5 +25,28 @@ public class Main {
         MedicalVisit retrievedVisit = doctor.getMedicalVisit(visitId);
         System.out.println("Retrieved Medical Visit: " + retrievedVisit);
 
+        // Update the medical visit status
+        String updatedStatus = "Completed";
+        MedicalVisit updatedVisit = doctor.updateMedicalVisit(visitId, medicalVisitDate, medicalVisitTime, elderId, updatedStatus);
+        System.out.println("Updated Medical Visit: " + updatedVisit);
+
+        // Create a Visitor object with ID 101
+        Visitor visitor = new Visitor(101);
+
+        // Create a normal visit for the visitor
+        String normalVisitDate = "2024-11-17";
+        String normalVisitTime = "2:00 PM";
+        int elderVisitId1 = 124; // First Elder ID for normal visit
+        String visitStatus = "Pending";
+
+        // Create the first normal visit for Elder 124
+        NormalVisit newNormalVisit1 = Visitor.create(normalVisitDate, normalVisitTime, elderVisitId1, visitStatus);
+        System.out.println("New normal visit created with ID: " + newNormalVisit1.getId());
+
+        // Retrieve and update the first normal visit
+        int normalVisitId1 = newNormalVisit1.getId();
+        NormalVisit retrievedNormalVisit1 = visitor.getNormalVisit(normalVisitId1);
+        System.out.println("Retrieved Normal Visit 1: " + retrievedNormalVisit1);
+
     }
 }
