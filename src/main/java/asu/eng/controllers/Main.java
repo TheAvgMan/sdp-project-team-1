@@ -48,5 +48,26 @@ public class Main {
         NormalVisit retrievedNormalVisit1 = visitor.getNormalVisit(normalVisitId1);
         System.out.println("Retrieved Normal Visit 1: " + retrievedNormalVisit1);
 
+        // Update the first normal visit status
+        String updatedNormalVisitStatus1 = "Completed";
+        NormalVisit updatedNormalVisit1 = visitor.updateNormalVisit(normalVisitId1, normalVisitDate, normalVisitTime, elderVisitId1, updatedNormalVisitStatus1);
+        System.out.println("Updated Normal Visit 1: " + updatedNormalVisit1);
+
+        // Create a second normal visit for another elder (Elder 125)
+        int elderVisitId2 = 125; // Second Elder ID for normal visit
+
+        // Create the second normal visit for Elder 125
+        NormalVisit newNormalVisit2 = visitor.create(normalVisitDate, normalVisitTime, elderVisitId2, visitStatus);
+        System.out.println("New normal visit created with ID: " + newNormalVisit2.getId());
+
+        // Retrieve and update the second normal visit
+        int normalVisitId2 = newNormalVisit2.getId();
+        NormalVisit retrievedNormalVisit2 = visitor.getNormalVisit(normalVisitId2);
+        System.out.println("Retrieved Normal Visit 2: " + retrievedNormalVisit2);
+
+        // Update the second normal visit status
+        String updatedNormalVisitStatus2 = "Completed";
+        NormalVisit updatedNormalVisit2 = visitor.updateNormalVisit(normalVisitId2, normalVisitDate, normalVisitTime, elderVisitId2, updatedNormalVisitStatus2);
+        System.out.println("Updated Normal Visit 2: " + updatedNormalVisit2);
     }
 }
