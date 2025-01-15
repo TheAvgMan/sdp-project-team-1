@@ -1,5 +1,5 @@
-package asu.eng.models;
+package org.example;
 
 public interface Observer {
-    void update();
+    void update(String eventDetails);
 }
