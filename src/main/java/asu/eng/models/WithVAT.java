@@ -1,5 +1,4 @@
-package org.example;
-
+package asu.eng.models;
 public class WithVAT extends ReceiptDecorator {
     private double vatRate;
 

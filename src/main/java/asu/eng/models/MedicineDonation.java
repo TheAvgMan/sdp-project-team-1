@@ -1,5 +1,4 @@
-package org.example;
-
+package asu.eng.models;
 public class MedicineDonation implements DonationBehavior {
 
     // Constructor to initialize the medicine type

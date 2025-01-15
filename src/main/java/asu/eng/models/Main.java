@@ -1,6 +1,4 @@
-package org.example;
-
-import java.util.Date;
+package asu.eng.models;
 
 public class Main {
     public static void main(String[] args) {

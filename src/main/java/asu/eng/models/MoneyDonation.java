@@ -1,5 +1,4 @@
-package org.example;
-
+package asu.eng.models;
 public class MoneyDonation implements DonationBehavior {
 
     // Constructor to initialize the currency type

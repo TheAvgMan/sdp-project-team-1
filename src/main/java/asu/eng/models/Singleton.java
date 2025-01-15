@@ -1,4 +1,4 @@
-package org.example;
+package asu.eng.models;
 
 import com.mongodb.client.*;
 import com.mongodb.client.MongoClient;

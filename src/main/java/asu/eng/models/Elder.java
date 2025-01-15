@@ -1,8 +1,11 @@
-package org.example;
+package asu.eng.models;
 
-import com.mongodb.client.*;
-import org.bson.Document;
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
+import org.bson.Document;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
