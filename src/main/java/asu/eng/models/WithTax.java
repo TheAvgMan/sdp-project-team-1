@@ -1,18 +1,15 @@
 package asu.eng.models;
 
-public class WithTax extends ReceiptDecorator {
-    private double taxRate;
+public class WithTax extends DonationReceipt{
+    private DonationReceipt donationReceipt;
 
-    public WithTax(IReceiptGenerator receipt, double taxRate) {
-        super(receipt);
-        this.taxRate = taxRate;
+    public WithTax(DonationReceipt donationReceipt) {
+        super(donationReceipt.getAmount());
+        this.donationReceipt = donationReceipt;
     }
 
     @Override
-    public String generateReceipt(Donation donation) {
-        String receipt = decoratedReceipt.generateReceipt(donation);
-        double taxAmount = donation.getAmount() * taxRate;
-        double newTotal = donation.getAmount() + taxAmount;
-        return receipt + String.format("\nIncluding Tax (%.0f%%): %.2f (New Total: %.2f)", taxRate * 100, taxAmount, newTotal);
+    public int addValue() {
+        return donationReceipt.getAmount() + super.getAmount() + 2;
     }
 }

@@ -1,4 +1,4 @@
-package asu.eng.models;
+package org.example;
 
 public class RejectedState implements DonationState {
 

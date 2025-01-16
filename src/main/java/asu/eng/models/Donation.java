@@ -1,4 +1,4 @@
-package asu.eng.models;
+package org.example;
 
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
@@ -61,7 +61,9 @@ public class Donation extends DonationContext {
         updateStatusInDatabase("Rejected");
     }
 
-    // Additional CRUD Operations
+    // Static CRUD Operations for Donations
+
+    // Create a new donation
     public static Donation createDonation(String date, double amount, int elderId, int donatorId, String type) {
         String id = new ObjectId().toString();
         Donation donation = new Donation(id, date, amount, elderId, donatorId, type, "PendingApproval");
@@ -82,6 +84,7 @@ public class Donation extends DonationContext {
         }
     }
 
+    // Retrieve an existing donation
     public static Donation getDonation(String donationId) {
         try {
             Document doc = donationCollection.find(Filters.eq("_id", new ObjectId(donationId))).first();
@@ -102,6 +105,7 @@ public class Donation extends DonationContext {
         return null;
     }
 
+    // Update an existing donation
     public static Donation updateDonation(String donationId, String date, double amount, int elderId, String type) {
         try {
             Document updateDoc = new Document("$set", new Document("date", date)
@@ -116,6 +120,7 @@ public class Donation extends DonationContext {
         return null;
     }
 
+    // Cancel an existing donation
     public static boolean cancelDonation(String donationId) {
         try {
             donationCollection.deleteOne(Filters.eq("_id", new ObjectId(donationId)));

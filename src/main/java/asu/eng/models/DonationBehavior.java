@@ -1,6 +1,6 @@
-package asu.eng.models;
-public interface DonationBehavior {
+package org.example;
 
+public interface DonationBehavior {
     // Method to create a donation
     Donation createDonation(String date, double amount, int elderId, int donatorId, String type);
 

@@ -1,4 +1,5 @@
-package asu.eng.models;
+package org.example;
+
 import com.mongodb.client.*;
 import com.mongodb.client.model.Filters;
 import org.bson.Document;

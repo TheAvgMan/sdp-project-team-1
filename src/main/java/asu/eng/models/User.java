@@ -1,4 +1,4 @@
-package asu.eng.models;
+package org.example;
 
 import com.mongodb.client.*;
 import org.bson.Document;
@@ -10,24 +10,9 @@ public class User {
     private static MongoClient mongoClient;
     private MongoDatabase database;
     private MongoCollection<Document> userCollection;
-    private static int ClassLevelID = 1;
 
     // Constructor to initialize User object
-    public User(int id, String name) {
-        this.id = id;
-        this.database = Singleton.getInstance().getDatabase(); // Get the database using Singleton
-        this.userCollection = database.getCollection("users"); // Collection name for storing user information
-
-        // Fetch user data from the database
-        Document userDoc = getUserFromDB(id);
-        if (userDoc != null) {
-            this.name = userDoc.getString("name");
-        } else {
-            this.name = name;
-        }
-    }
-
-    public User (int id) {
+    public User(int id) {
         this.id = id;
         this.database = Singleton.getInstance().getDatabase(); // Get the database using Singleton
         this.userCollection = database.getCollection("users"); // Collection name for storing user information
@@ -67,11 +52,10 @@ public class User {
     }
 
     // Optional: Add a method to create a new user in MongoDB if needed
-    public static void createUser(String name) {
+    public static void createUser(int id, String name) {
         MongoCollection<Document> userCollection = Singleton.getInstance().getDatabase().getCollection("users");
-        Document newUser = new Document("id", ClassLevelID).append("name", name);
+        Document newUser = new Document("id", id).append("name", name);
         userCollection.insertOne(newUser);
-        ClassLevelID++;
     }
 
     // Optional: Add a method to delete a user from MongoDB

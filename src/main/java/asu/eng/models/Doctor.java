@@ -1,7 +1,6 @@
-package asu.eng.models;
+package org.example;
 
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.*;
 import com.mongodb.client.model.Filters;
 import org.bson.Document;
 import org.bson.types.ObjectId;
@@ -11,7 +10,7 @@ public class Doctor extends User implements Observer {
     private MongoCollection<Document> doctorCollection;
 
     // Constructor to initialize User object (Doctor)
-    public Doctor(int id) {
+    public Doctor(int id, String name) {
         super(id); // Initialize User with id and name
         MongoDatabase database = Singleton.getInstance().getDatabase(); // Get the database using Singleton
         this.medicalVisitCollection = database.getCollection("medicalVisits"); // Collection name for medical visits

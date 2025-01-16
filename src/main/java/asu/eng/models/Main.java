@@ -1,54 +1,45 @@
-package asu.eng.models;
+package org.example;
 
 public class Main {
     public static void main(String[] args) {
-        DonationBehavior moneyDonationBehavior = new MoneyDonation();
+        try {
+            // Initialize MoneyDonation
+            MoneyDonation moneyDonation = new MoneyDonation();
 
-        Donation donation = moneyDonationBehavior.createDonation("2025-01-15", 50.0, 101, 1001, "USD");
+            // Create a donation in USD
+            System.out.println("Creating USD Donation...");
+            Donation usdDonation = moneyDonation.createDonation("2025-01-15", 100.0, 101, 102, "USD");
+            System.out.println("Created USD Donation: " + usdDonation);
 
-        // Base receipt generator
-        IReceiptGenerator baseReceipt = new MoneyDonationReceiptAdapter();
+            // Create a donation in EGP
+            System.out.println("\nCreating EGP Donation...");
+            Donation egpDonation = moneyDonation.createDonation("2025-01-16", 500.0, 103, 104, "EGP");
+            System.out.println("Created EGP Donation: " + egpDonation);
 
-        // Decorate with VAT
-        IReceiptGenerator receiptWithVAT = new WithVAT(baseReceipt, 0.20); // Adding 20% VAT
+            // Update the USD donation
+            System.out.println("\nUpdating USD Donation...");
+            if (usdDonation != null) {
+                Donation updatedUsdDonation = moneyDonation.updateDonation(
+                        usdDonation.getDonationId(), "2025-01-20", 150.0, 101, "USD"
+                );
+                System.out.println("Updated USD Donation: " + updatedUsdDonation);
+            }
 
-        // Decorate with Tax
-        IReceiptGenerator receiptWithTax = new WithTax(baseReceipt, 0.10); // Adding 10% Tax
+            // Update the EGP donation
+            System.out.println("\nUpdating EGP Donation...");
+            if (egpDonation != null) {
+                Donation updatedEgpDonation = moneyDonation.updateDonation(
+                        egpDonation.getDonationId(), "2025-01-21", 300.0, 103, "EGP"
+                );
+                System.out.println("Updated EGP Donation: " + updatedEgpDonation);
+            }
 
-        // Decorate with both VAT and Tax
-        IReceiptGenerator receiptWithBoth = new WithVAT(new WithTax(baseReceipt, 0.10), 0.20);
+            // Display the updated totals
+            System.out.println("\nCurrency Totals: " + MoneyCreate.getCurrencyTotals());
 
-        System.out.println("Receipt with VAT:");
-        System.out.println(receiptWithVAT.generateReceipt(donation));
-
-        System.out.println("\nReceipt with Tax:");
-        System.out.println(receiptWithTax.generateReceipt(donation));
-
-        System.out.println("\nReceipt with Both VAT and Tax:");
-        System.out.println(receiptWithBoth.generateReceipt(donation));
-
-//        ------------------------------------------
-
-//        Command Pattern test
-
-//        User.createUser("Dr. Smith");
-//        Doctor doctor = new Doctor(1);
-//        doctor.appendDoctorToDatabase();
-//        Elder.create(1, "Abby Gail");
-//        Elder elder = Elder.get(1);
-//        Scheduler scheduler = new Scheduler();
-//
-//// Create a medical visit
-//        ICommand createVisit = new CreateMedicalVisitCommand(doctor, "2025-01-01", "10:00", "Scheduled", elder.getId());
-//        scheduler.takeCommand(createVisit);
-//
-//// Cancel a medical visit
-//        ICommand cancelVisit = new CancelMedicalVisitCommand(doctor, "visit123");
-//        scheduler.takeCommand(cancelVisit);
-//
-//// Execute all commands
-//        scheduler.executeCommands();
-
+        } catch (Exception e) {
+            System.err.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 }
-

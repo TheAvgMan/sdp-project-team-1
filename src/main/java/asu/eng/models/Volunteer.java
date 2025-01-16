@@ -1,4 +1,4 @@
-package asu.eng.models;
+package org.example;
 
 import com.mongodb.client.*;
 import com.mongodb.client.model.Filters;
@@ -126,3 +126,4 @@ public class Volunteer implements Observer {
         System.out.println("Volunteer " + volunteer.getName() + " received event update: " + eventDetails);
     }
 }
+
