@@ -17,8 +17,8 @@ public class AdapterDPUsecase {
             User.createUser(2, "Bob");
 
             // Step 2: Initialize Donation Behaviors
-            DonationBehavior medicineDonationBehavior = new MedicineDonation("Pain Killers");
-            DonationBehavior moneyDonationBehavior = new MoneyDonation("Sterling Pound");
+            DonationBehavior medicineDonationBehavior = new MedicineDonation();
+            DonationBehavior moneyDonationBehavior = new MoneyDonation();
 
             // Step 3: Initialize Receipt Generators
             IReceiptGenerator medicineReceiptGenerator = new MedicineDonationReceiptAdapter();
