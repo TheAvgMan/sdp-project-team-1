@@ -1,4 +1,4 @@
-package org.example;
+package asu.eng.models;
 
 public interface DonationBehavior {
     // Method to create a donation

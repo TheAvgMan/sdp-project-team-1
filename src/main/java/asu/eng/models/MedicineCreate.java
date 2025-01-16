@@ -1,4 +1,4 @@
-package org.example;
+package asu.eng.models;
 
 public class MedicineCreate extends DonationTemplate {
     private static double totalMedicineInventory = 0; // Static variable to track total inventory

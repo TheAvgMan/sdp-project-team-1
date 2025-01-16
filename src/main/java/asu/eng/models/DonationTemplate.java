@@ -1,4 +1,4 @@
-package org.example;
+package asu.eng.models;
 
 public abstract class DonationTemplate {
     public final Donation createDonation(String date, double amount, int elderId, int donatorId, String type) {

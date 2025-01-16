@@ -1,4 +1,4 @@
-package org.example;
+package asu.eng.models;
 
 public class MoneyCreate extends DonationTemplate {
     private static final java.util.Map<String, Double> currencyTotals = new java.util.HashMap<>();

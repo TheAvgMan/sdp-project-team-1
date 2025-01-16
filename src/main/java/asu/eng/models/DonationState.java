@@ -1,4 +1,4 @@
-package org.example;
+package asu.eng.models;
 
 public interface DonationState {
     void nextState(DonationContext context);
