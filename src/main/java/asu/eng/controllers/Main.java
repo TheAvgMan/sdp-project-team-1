@@ -6,13 +6,7 @@ import asu.eng.models.*;
 public class Main {
     public static void main(String[] args) {
 
-        // MoneyDonationUsecase Test
-//        MoneyDonationUsecase moneyDonationUsecase=new MoneyDonationUsecase();
-//        moneyDonationUsecase.main();
 
-        // State Pattern Test ********************************
-//        StateDPUsecase stateTest = new StateDPUsecase();
-//        stateTest.main();
 
 
 
@@ -79,6 +73,21 @@ public class Main {
 //
 
 
+
+
+
+
+
+        // MedicineDonationUsecase test
+//        MedicineDonationUsecase medicinedonationusecasetest= new MedicineDonationUsecase();
+//        medicinedonationusecasetest.main();
+        // MoneyDonationUsecase Test
+//        MoneyDonationUsecase moneyDonationUsecase=new MoneyDonationUsecase();
+//        moneyDonationUsecase.main();
+
+        // State Pattern Test ********************************
+//        StateDPUsecase stateTest = new StateDPUsecase();
+//        stateTest.main();
 
 
 

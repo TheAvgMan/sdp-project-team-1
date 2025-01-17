@@ -1,6 +1,7 @@
 package asu.eng.controllers;
 
 import asu.eng.models.*;
+import asu.eng.views.Printer;
 
 public class MedicineDonationUsecase implements IUsecaseContoller{
 
@@ -12,27 +13,28 @@ public class MedicineDonationUsecase implements IUsecaseContoller{
         int elderId = 201; // Elder ID receiving the donation
         int donatorId = 301; // Donator ID
         String type = "Medicine";
+        Printer MedicineDonationPrint = new Printer();
 
         // Using Template Method Pattern
-        System.out.println("Testing Medicine Donation with Template Method Pattern:");
+        MedicineDonationPrint.printMessage("Testing Medicine Donation with Template Method Pattern:");
         DonationTemplate medicineTemplate = new MedicineCreate();
         Donation donationUsingTemplate = medicineTemplate.createDonation(date, amount, elderId, donatorId, type);
 
         if (donationUsingTemplate != null) {
-            System.out.println("Medicine Donation created successfully using Template Method: " + donationUsingTemplate);
+            MedicineDonationPrint.printMessage("Medicine Donation created successfully using Template Method: " + donationUsingTemplate);
         } else {
-            System.out.println("Failed to create Medicine Donation using Template Method.");
+            MedicineDonationPrint.printMessage("Failed to create Medicine Donation using Template Method.");
         }
 
         // Using Strategy Pattern
-        System.out.println("\nTesting Medicine Donation with Strategy Pattern:");
+        MedicineDonationPrint.printMessage("\nTesting Medicine Donation with Strategy Pattern:");
         DonationBehavior medicineStrategy = new MedicineDonation();
         Donation donationUsingStrategy = medicineStrategy.createDonation(date, amount, elderId, donatorId, type);
 
         if (donationUsingStrategy != null) {
-            System.out.println("Medicine Donation created successfully using Strategy Pattern: " + donationUsingStrategy);
+            MedicineDonationPrint.printMessage("Medicine Donation created successfully using Strategy Pattern: " + donationUsingStrategy);
         } else {
-            System.out.println("Failed to create Medicine Donation using Strategy Pattern.");
+            MedicineDonationPrint.printMessage("Failed to create Medicine Donation using Strategy Pattern.");
         }
     }
 }
