@@ -10,18 +10,19 @@ public class Elder {
 
     private static final String DATABASE_NAME = "retirementHome";
     private static final String COLLECTION_NAME = "elders";
+    private static MongoDatabase database = Singleton.getInstance().getDatabase();
     private static MongoClient mongoClient;
     private static MongoCollection<Document> collection;
     private static final Logger logger = Logger.getLogger(Elder.class.getName());
-    private MongoCollection<Document> eldersCollection;
+    private static MongoCollection<Document> eldersCollection = database.getCollection("elders");
 
 
     // Static block to initialize the MongoDB client and collection
     {
         try {
             // Get the MongoDB client and database from Singleton
-            MongoDatabase database = Singleton.getInstance().getDatabase();
-            this.eldersCollection = database.getCollection("elders");
+//            MongoDatabase database = Singleton.getInstance().getDatabase();
+//            this.eldersCollection = database.getCollection("elders");
         } catch (Exception e) {
             logger.log(Level.SEVERE, "Error initializing MongoDB collection", e);
         }
@@ -59,7 +60,7 @@ public class Elder {
             // Create a document to insert into MongoDB
             Document document = new Document("id", id)
                     .append("name", name);
-            collection.insertOne(document);
+            eldersCollection.insertOne(document);
             logger.info("Elder created successfully: " + name);
             return true;
         } catch (Exception e) {
@@ -72,7 +73,7 @@ public class Elder {
     public static Elder get(int id) {
         try {
             // Query the collection for an elder by id
-            Document doc = collection.find(Filters.eq("id", id)).first();
+            Document doc = eldersCollection.find(Filters.eq("id", id)).first();
             if (doc != null) {
                 return new Elder(doc.getInteger("id"), doc.getString("name"));
             } else {

@@ -12,15 +12,16 @@ public class NormalVisit extends Visit {
 
     private static final String DATABASE_NAME = "retirementHome";
     private static final String COLLECTION_NAME = "normalVisits";
-    private static MongoCollection<Document> collection;
+    private static MongoDatabase database = Singleton.getInstance().getDatabase(); // Get the database using Singleton
+    private static MongoCollection<Document> collection = database.getCollection("normalVisits");
     private static MongoClient mongoClient;
     private MongoCollection<Document> NormalVisitCollection;
 
 
     {
         // Establish MongoDB connection
-        MongoDatabase database = Singleton.getInstance().getDatabase(); // Get the database using Singleton
-        this.NormalVisitCollection = database.getCollection("normalVisits"); // Collection name for medical visits
+//        MongoDatabase database = Singleton.getInstance().getDatabase(); // Get the database using Singleton
+//        this.NormalVisitCollection = database.getCollection("normalVisits"); // Collection name for medical visits
     }
 
     private String NormalVisitId;  // Change to String
