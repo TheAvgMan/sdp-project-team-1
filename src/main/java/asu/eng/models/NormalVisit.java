@@ -4,7 +4,7 @@ import com.mongodb.client.*;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 
-public class NormalVisit {
+public class NormalVisit extends Visit {
 
     private static final String DATABASE_NAME = "retirementHome";
     private static final String COLLECTION_NAME = "normalVisits";
@@ -20,10 +20,7 @@ public class NormalVisit {
     }
 
     private String NormalVisitId;  // Change to String
-    private String date;
-    private String time;
     private int visitorId;
-    private int elderId;
     private String status; // New field for status
 
     // Constructor
@@ -34,6 +31,12 @@ public class NormalVisit {
         this.visitorId = visitorId;
         this.elderId = elderId;
         this.status = status; // Initialize status
+    }
+
+    @Override
+    public void visit(Elder elder) {
+        System.out.println("Performing a normal visit to " + elder.getName());
+        // Implement visit behavior here
     }
 
     public String getVisitId() {

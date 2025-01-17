@@ -1,27 +1,11 @@
 package asu.eng.models;
 
 public abstract class Visit {
-    private int id;
-    private String date;
-    private String time;
-    private int userId;
-    private int elderId;
+    protected String date;
+    protected String time;
+    protected int elderId;
 
-    public Visit(/* type of object returning from database */) {
-//        this.id = id;
-//        this.date = date;
-//        this.time = time;
-//        this.userId = userId;
-//        this.elderId = elderId;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    public abstract void visit(Elder elder);
 
     public String getDate() {
         return date;
@@ -37,14 +21,6 @@ public abstract class Visit {
 
     public void setTime(String time) {
         this.time = time;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
     }
 
     public int getElderId() {

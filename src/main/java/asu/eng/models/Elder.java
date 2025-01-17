@@ -112,6 +112,11 @@ public class Elder {
         }
     }
 
+    public void accept(Visit visit) {
+        visit.visit(this);
+    }
+
+
     // Method to close the MongoDB connection
     public static void close() {
         try {
