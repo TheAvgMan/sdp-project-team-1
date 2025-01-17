@@ -1,5 +1,6 @@
 package asu.eng.models;
 
+import asu.eng.views.Printer;
 import com.mongodb.client.*;
 import com.mongodb.client.model.Filters;
 import org.bson.Document;
@@ -93,7 +94,9 @@ public class Doctor extends User implements Observer {
             doctorCollection.insertOne(doctorDocument);
 
             // Log success and return true
-            System.out.println("Doctor added to the database successfully!");
+            Printer doctorPrint = new Printer();
+            doctorPrint.printMessage("Doctor added to the database successfully!");
+
             return true;
         } catch (Exception e) {
             e.printStackTrace();
