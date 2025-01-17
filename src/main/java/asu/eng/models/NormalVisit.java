@@ -3,8 +3,12 @@ package asu.eng.models;
 import com.mongodb.client.*;
 import org.bson.Document;
 import org.bson.types.ObjectId;
+// for factory pattern getting all Normal visits
+import java.util.List;
+import java.util.ArrayList;
 
 public class NormalVisit extends Visit {
+
 
     private static final String DATABASE_NAME = "retirementHome";
     private static final String COLLECTION_NAME = "normalVisits";
@@ -142,6 +146,36 @@ public class NormalVisit extends Visit {
                 ", elderId=" + elderId +
                 ", status='" + status + '\'' +  // Include status in toString
                 '}';
+    }
+
+
+    // Get all Normal Visits for Normal Visit Report Factory Pattern
+    public static List<NormalVisit> getAllNormalVisits() {
+        List<NormalVisit> visits = new ArrayList<>();
+        try {
+            // Ensure the collection is initialized
+            if (collection == null) {
+                MongoDatabase database = Singleton.getInstance().getDatabase();
+                collection = database.getCollection(COLLECTION_NAME);
+            }
+
+            MongoCursor<Document> cursor = collection.find().iterator();
+            while (cursor.hasNext()) {
+                Document doc = cursor.next();
+                visits.add(new NormalVisit(
+                        doc.getObjectId("_id").toString(),
+                        doc.getString("date"),
+                        doc.getString("time"),
+                        doc.getInteger("visitorId"),
+                        doc.getInteger("elderId"),
+                        doc.getString("status")
+                ));
+            }
+        } catch (Exception e) {
+            System.err.println("Error retrieving all normal visits: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return visits;
     }
 
 }
