@@ -3,14 +3,13 @@ package asu.eng.controllers;
 import asu.eng.views.*;
 import asu.eng.models.*;
 
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
 
+        // Iterator Test ****************************************************
 
-
-
-
-        // Iterator Test ***********************
 //        IteratorDPUsecase usecase = new IteratorDPUsecase();
 //        // Create Elder objects
 //        Elder elder1 = new Elder(1, "John Doe");
@@ -26,12 +25,13 @@ public class Main {
 
 
 
-        // Facade Export to excel ********************************
+        // Facade Export to excel ***************************************************
+//
 //        Printer facadeprint = new Printer();
 //        EventsExportUseCase facadetest= new EventsExportUseCase(facadeprint);
 //        facadetest.exportEventsToExcel();
-
-       // Command Pattern Test ***********************************
+//
+//       // Command Pattern Test ***********************************
 //        Doctor doctor = new Doctor(1, "Dr. Smith");
 //        Scheduler scheduler = new Scheduler();
 //
@@ -49,12 +49,17 @@ public class Main {
 
 
 
-        // Adapter Pattern ***********************
+        // Adapter Pattern ************************************************************************
+
+
 //        AdapterDPUsecase adapterDPUsecasetest=new AdapterDPUsecase();
 //        adapterDPUsecasetest.main();
 
 
-        // Factory pattern  ***********************************************
+        // Factory pattern  *************************************************************************
+
+
+
 //        ReportController reportController = new ReportController();
 //        Printer factoryprint = new Printer();
 //        // Test Normal Visit
@@ -67,23 +72,36 @@ public class Main {
 
 
 
-        // Decorater Pattern ***********************************************
+        // Decorater Pattern ***************************************************************************
+
+//
 //        DecoratorDPUsecase decoraterDPUseCase = new DecoratorDPUsecase();
 //        decoraterDPUseCase.main();
+
+
+        // Observer Pattern Test **********************************************************
+//        ObserverDPUsecase ObserverDPUsecasetest = new ObserverDPUsecase();
+//        ObserverDPUsecasetest.main();
+
+
+        // ProxyUsecase Test ******************************************************
+//        ProxyUsecase ProxyUsecasetest=new ProxyUsecase();
+//        ProxyUsecasetest.main();
+
+
+
+        // MedicineDonationUsecase test ********************************************************
+
 //
-
-
-
-
-
-
-
-        // MedicineDonationUsecase test
 //        MedicineDonationUsecase medicinedonationusecasetest= new MedicineDonationUsecase();
 //        medicinedonationusecasetest.main();
-        // MoneyDonationUsecase Test
+//
+//
+//         //MoneyDonationUsecase Test *************************************************************
 //        MoneyDonationUsecase moneyDonationUsecase=new MoneyDonationUsecase();
 //        moneyDonationUsecase.main();
+
+
 
         // State Pattern Test ********************************
 //        StateDPUsecase stateTest = new StateDPUsecase();
@@ -92,6 +110,17 @@ public class Main {
 
 
 
+
+
+
+
+
+
+
+
+
+
+        
 
 //        // Create a Doctor object with ID 1 and name
 //        Doctor doctor = new Doctor(1, "Dr. John Doe");
