@@ -6,19 +6,29 @@ import asu.eng.models.*;
 public class Main {
     public static void main(String[] args) {
 
+        // MoneyDonationUsecase Test
+//        MoneyDonationUsecase moneyDonationUsecase=new MoneyDonationUsecase();
+//        moneyDonationUsecase.main();
+
+        // State Pattern Test ********************************
+//        StateDPUsecase stateTest = new StateDPUsecase();
+//        stateTest.main();
+
+
+
         // Iterator Test ***********************
-        IteratorDPUsecase usecase = new IteratorDPUsecase();
-        // Create Elder objects
-        Elder elder1 = new Elder(1, "John Doe");
-        Elder elder2 = new Elder(2, "Jane Smith");
-        // Add elders to the collection
-        usecase.addElders(elder1, elder2);
-
-        // Example visit ID (replace with an actual ID from your system)
-        String visitId = "678a459c998293d8be6a3e90";
-
-        // Send the NormalVisit by visit ID
-        usecase.sendNormalVisit(visitId);
+//        IteratorDPUsecase usecase = new IteratorDPUsecase();
+//        // Create Elder objects
+//        Elder elder1 = new Elder(1, "John Doe");
+//        Elder elder2 = new Elder(2, "Jane Smith");
+//        // Add elders to the collection
+//        usecase.addElders(elder1, elder2);
+//
+//        // Example visit ID (replace with an actual ID from your system)
+//        String visitId = "678a459c998293d8be6a3e90";
+//
+//        // Send the NormalVisit by visit ID
+//        usecase.sendNormalVisit(visitId);
 
 
 
@@ -27,7 +37,7 @@ public class Main {
 //        EventsExportUseCase facadetest= new EventsExportUseCase(facadeprint);
 //        facadetest.exportEventsToExcel();
 
-       // Command Pattern Test ********************
+       // Command Pattern Test ***********************************
 //        Doctor doctor = new Doctor(1, "Dr. Smith");
 //        Scheduler scheduler = new Scheduler();
 //
@@ -49,6 +59,7 @@ public class Main {
 //        AdapterDPUsecase adapterDPUsecasetest=new AdapterDPUsecase();
 //        adapterDPUsecasetest.main();
 
+
         // Factory pattern  ***********************************************
 //        ReportController reportController = new ReportController();
 //        Printer factoryprint = new Printer();
@@ -59,6 +70,8 @@ public class Main {
 //
 //        factoryprint.printMessage("Displaying Report:");
 //        reportController.generateAndDisplayReportMedicalVisit();
+
+
 
         // Decorater Pattern ***********************************************
 //        DecoratorDPUsecase decoraterDPUseCase = new DecoratorDPUsecase();

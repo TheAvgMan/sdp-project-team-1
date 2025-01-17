@@ -1,6 +1,7 @@
 package asu.eng.controllers;
 
 import asu.eng.models.*;
+import asu.eng.views.Printer;
 
 public class MoneyDonationUsecase implements IUsecaseContoller{
 
@@ -13,26 +14,28 @@ public class MoneyDonationUsecase implements IUsecaseContoller{
         int donatorId = 302; // Donator ID
         String type = "USD"; // Currency type
 
+        Printer MoneyDonationPrint = new Printer();
+
         // Using Template Method Pattern
-        System.out.println("Testing Money Donation with Template Method Pattern:");
+        MoneyDonationPrint.printMessage("Testing Money Donation with Template Method Pattern:");
         DonationTemplate moneyTemplate = new MoneyCreate();
         Donation donationUsingTemplate = moneyTemplate.createDonation(date, amount, elderId, donatorId, type);
 
         if (donationUsingTemplate != null) {
-            System.out.println("Money Donation created successfully using Template Method: " + donationUsingTemplate);
+            MoneyDonationPrint.printMessage("Money Donation created successfully using Template Method: " + donationUsingTemplate);
         } else {
-            System.out.println("Failed to create Money Donation using Template Method.");
+            MoneyDonationPrint.printMessage("Failed to create Money Donation using Template Method.");
         }
 
         // Using Strategy Pattern
-        System.out.println("\nTesting Money Donation with Strategy Pattern:");
+        MoneyDonationPrint.printMessage("\nTesting Money Donation with Strategy Pattern:");
         DonationBehavior moneyStrategy = new MoneyDonation();
         Donation donationUsingStrategy = moneyStrategy.createDonation(date, amount, elderId, donatorId, type);
 
         if (donationUsingStrategy != null) {
-            System.out.println("Money Donation created successfully using Strategy Pattern: " + donationUsingStrategy);
+            MoneyDonationPrint.printMessage("Money Donation created successfully using Strategy Pattern: " + donationUsingStrategy);
         } else {
-            System.out.println("Failed to create Money Donation using Strategy Pattern.");
+            MoneyDonationPrint.printMessage("Failed to create Money Donation using Strategy Pattern.");
         }
     }
 }
