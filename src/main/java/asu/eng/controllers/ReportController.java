@@ -19,6 +19,13 @@ public class ReportController {
             System.err.println(e.getMessage());
         }
     }
+    public void generateAndDisplayReportNormalVisit(){
+        generateAndDisplayReport("NormalVisit");
+    }
+
+    public void generateAndDisplayReportMedicalVisit(){
+        generateAndDisplayReport("MedicalVisit");
+    }
 
     private String fetchReportContent(IReport report) {
         StringBuilder contentBuilder = new StringBuilder();

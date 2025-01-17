@@ -1,13 +1,22 @@
-//package asu.eng.controllers;
-//
-//
-//import asu.eng.models.Doctor;
-//import asu.eng.models.MedicalVisit;
-//import asu.eng.models.NormalVisit;
-//import asu.eng.models.Visitor;
-//
-//public class Main {
-//    public static void main(String[] args) {
+package asu.eng.controllers;
+
+import asu.eng.views.*;
+import asu.eng.models.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        // Factory pattern
+        ReportController reportController = new ReportController();
+        // Test Normal Visit Report
+        reportController.generateAndDisplayReportNormalVisit();
+        // Test Medical Visit Report
+        reportController.generateAndDisplayReportMedicalVisit();
+
+        // Decorater Pattern
+        //DecoratorDPUsecase decoraterDPUseCase = new DecoratorDPUsecase();
+        //decoraterDPUseCase.main();
+
 //        // Create a Doctor object with ID 1 and name
 //        Doctor doctor = new Doctor(1, "Dr. John Doe");
 //
@@ -69,5 +78,5 @@
 //        String updatedNormalVisitStatus2 = "Completed";
 //        NormalVisit updatedNormalVisit2 = visitor.updateNormalVisit(normalVisitId2, normalVisitDate, normalVisitTime, elderVisitId2, updatedNormalVisitStatus2);
 //        System.out.println("Updated Normal Visit 2: " + updatedNormalVisit2);
-//    }
-//}
+    }
+}
