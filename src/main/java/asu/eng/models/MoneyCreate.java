@@ -19,7 +19,7 @@ public class MoneyCreate extends DonationTemplate {
 
     public void updateCurrencyTotals(double amount, String type) {
         currencyTotals.put(type, currencyTotals.getOrDefault(type, 0.0) + amount);
-        System.out.println("Updated total for currency " + type + ": " + currencyTotals.get(type));
+        //System.out.println("Updated total for currency " + type + ": " + currencyTotals.get(type));
     }
 
     public static java.util.Map<String, Double> getCurrencyTotals() {
