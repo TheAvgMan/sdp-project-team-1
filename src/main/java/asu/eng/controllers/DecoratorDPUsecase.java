@@ -1,6 +1,7 @@
 package asu.eng.controllers;
 
 import asu.eng.models.*;
+import asu.eng.views.DecoraterDPUsecaseView;
 
 public class DecoratorDPUsecase implements IUsecaseContoller {
 
@@ -22,13 +23,8 @@ public class DecoratorDPUsecase implements IUsecaseContoller {
         // Decorate with both VAT and Tax
         IReceiptGenerator receiptWithBoth = new WithVAT(new WithTax(baseReceipt, 0.10), 0.20);
 
-        System.out.println("Receipt with VAT:");
-        System.out.println(receiptWithVAT.generateReceipt(donation));
-
-        System.out.println("\nReceipt with Tax:");
-        System.out.println(receiptWithTax.generateReceipt(donation));
-
-        System.out.println("\nReceipt with Both VAT and Tax:");
-        System.out.println(receiptWithBoth.generateReceipt(donation));
+        // Create an instance of the view
+        DecoraterDPUsecaseView view = new DecoraterDPUsecaseView();
+        view.displayReceipts(donation, baseReceipt, receiptWithVAT, receiptWithTax, receiptWithBoth);
     }
 }
