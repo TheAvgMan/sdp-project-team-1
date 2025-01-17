@@ -1,5 +1,6 @@
 package asu.eng.models;
 
+import asu.eng.views.Printer;
 import com.mongodb.client.*;
 import org.bson.Document;
 import org.bson.types.ObjectId;
@@ -40,7 +41,11 @@ public class NormalVisit extends Visit {
 
     @Override
     public void visit(Elder elder) {
-        System.out.println("Performing a normal visit to " + elder.getName());
+        Printer visitPrint = new Printer();
+        String elderName;
+        elderName = elder.getName();
+        visitPrint.printMessage("Performing a normal visit to "+elderName);
+
         // Implement visit behavior here
     }
 
