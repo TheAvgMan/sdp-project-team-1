@@ -4,20 +4,21 @@ import asu.eng.models.*;
 
 public class DecoraterDPUsecaseView {
 
-    public void displayReceipts(Donation donation, IReceiptGenerator baseReceipt,
-                                IReceiptGenerator receiptWithVAT, IReceiptGenerator receiptWithTax,
-                                IReceiptGenerator receiptWithBoth) {
-
-        System.out.println("Base Receipt:");
+    public void displayBaseReceipt(Donation donation, IReceiptGenerator baseReceipt) {
         System.out.println(baseReceipt.generateReceipt(donation));
+    }
 
-        System.out.println("\nReceipt with VAT:");
+    public void displayReceiptWithVAT(Donation donation, IReceiptGenerator receiptWithVAT) {
         System.out.println(receiptWithVAT.generateReceipt(donation));
+    }
 
-        System.out.println("\nReceipt with Tax:");
+    public void displayReceiptWithTax(Donation donation, IReceiptGenerator receiptWithTax) {
         System.out.println(receiptWithTax.generateReceipt(donation));
+    }
 
-        System.out.println("\nReceipt with Both VAT and Tax:");
+    public void displayReceiptWithBoth(Donation donation, IReceiptGenerator receiptWithBoth) {
         System.out.println(receiptWithBoth.generateReceipt(donation));
     }
 }
+
+
