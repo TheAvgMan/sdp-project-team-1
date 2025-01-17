@@ -1,5 +1,5 @@
 package asu.eng.models;
 
 public interface IReport {
-    void generateReport(); // Abstract method to generate the report
+    String generateReport(); // Return the report as a string
 }

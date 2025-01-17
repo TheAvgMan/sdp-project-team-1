@@ -12,25 +12,19 @@ public class ReportController {
 
     public void generateAndDisplayReport(String reportType) {
         try {
-            IReport report = ReportFactory.createReport(reportType); // Use Factory to create the report
-            String reportContent = fetchReportContent(report); // Generate the report content
-            reportView.displayReport(reportContent); // Use View to display the report
+            IReport report = ReportFactory.createReport(reportType);
+            String reportContent = report.generateReport(); // Fetch report content as a string
+            reportView.displayReport(reportContent); // Display the report using ReportView
         } catch (IllegalArgumentException e) {
             System.err.println(e.getMessage());
         }
     }
-    public void generateAndDisplayReportNormalVisit(){
+
+    public void generateAndDisplayReportNormalVisit() {
         generateAndDisplayReport("NormalVisit");
     }
 
-    public void generateAndDisplayReportMedicalVisit(){
+    public void generateAndDisplayReportMedicalVisit() {
         generateAndDisplayReport("MedicalVisit");
-    }
-
-    private String fetchReportContent(IReport report) {
-        StringBuilder contentBuilder = new StringBuilder();
-        report.generateReport(); 
-        contentBuilder.append("Report generated successfully.");
-        return contentBuilder.toString();
     }
 }

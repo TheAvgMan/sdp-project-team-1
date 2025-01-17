@@ -8,8 +8,8 @@ public class Main {
 
 
         // Decorater Pattern
-        DecoratorDPUsecase decoraterDPUseCase = new DecoratorDPUsecase();
-        decoraterDPUseCase.main();
+//        DecoratorDPUsecase decoraterDPUseCase = new DecoratorDPUsecase();
+//        decoraterDPUseCase.main();
 //
 //        try {
 //            // Step 1: Initialize MongoDB Users
@@ -85,11 +85,15 @@ public class Main {
 
 
         // Factory pattern
-//        ReportController reportController = new ReportController();
-//        // Test Normal Visit Report
-//        reportController.generateAndDisplayReportNormalVisit();
-//        // Test Medical Visit Report
-//        reportController.generateAndDisplayReportMedicalVisit();
+        ReportController reportController = new ReportController();
+        Printer factoryprint = new Printer();
+        // Test Normal Visit
+        factoryprint.printMessage("Displaying Report:");
+        reportController.generateAndDisplayReportNormalVisit();
+        // Test Medical Visit Report
+
+        factoryprint.printMessage("Displaying Report:");
+        reportController.generateAndDisplayReportMedicalVisit();
 
 
 

@@ -4,16 +4,17 @@ import java.util.List;
 
 public class NormalVisitReport implements IReport {
     @Override
-    public void generateReport() {
-        System.out.println("Generating Normal Visit Report...");
+    public String generateReport() {
+        StringBuilder reportContent = new StringBuilder();
         List<NormalVisit> visits = NormalVisit.getAllNormalVisits();
 
         if (visits.isEmpty()) {
-            System.out.println("No normal visits found.");
+            reportContent.append("No normal visits found.");
         } else {
             for (NormalVisit visit : visits) {
-                System.out.println(visit); // Use the toString() method for formatting
+                reportContent.append(visit.toString()).append("\n");
             }
         }
+        return reportContent.toString();
     }
 }
