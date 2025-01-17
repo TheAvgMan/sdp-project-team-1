@@ -5,11 +5,13 @@ import org.bson.Document;
 import com.mongodb.client.model.Filters;
 
 public class User {
-    private int id;
-    private String name;
+    protected int id;
+    protected String name;
     private static MongoClient mongoClient;
     private MongoDatabase database;
     private MongoCollection<Document> userCollection;
+
+    public User() {}
 
     // Constructor to initialize User object
     public User(int id) {

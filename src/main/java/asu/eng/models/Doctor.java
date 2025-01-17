@@ -10,11 +10,19 @@ public class Doctor extends User implements Observer {
     private MongoCollection<Document> doctorCollection;
 
     // Constructor to initialize User object (Doctor)
-    public Doctor(int id, String name) {
+    public Doctor(int id) {
         super(id); // Initialize User with id and name
         MongoDatabase database = Singleton.getInstance().getDatabase(); // Get the database using Singleton
         this.medicalVisitCollection = database.getCollection("medicalVisits"); // Collection name for medical visits
+    }
+
+    public Doctor(int id, String name) {
+        MongoDatabase database = Singleton.getInstance().getDatabase(); // Get the database using Singleton
         this.doctorCollection = database.getCollection("doctors"); // Collection name for storing doctor information
+        this.medicalVisitCollection = database.getCollection("medicalVisits"); // Collection name for medical visits
+        this.id = id;
+        this.name = name;
+        appendDoctorToDatabase();
     }
 
     // Method to create a new medical visit and save it to the database
