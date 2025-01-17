@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 
 public class Elder {
 
-    private static final String DATABASE_NAME = "retirementHome";
+    private static final String DATABASE_NAME = "retirementHome2";
     private static final String COLLECTION_NAME = "elders";
     private static MongoDatabase database = Singleton.getInstance().getDatabase();
     private static MongoClient mongoClient;
