@@ -5,6 +5,11 @@ import org.bson.Document;
 import com.mongodb.client.model.Filters;
 import org.bson.types.ObjectId;
 
+// for factory pattern getting all medical visits
+import java.util.List;
+import java.util.ArrayList;
+
+
 public class MedicalVisit {
 
     private static final String DATABASE_NAME = "retirementHome";
@@ -123,4 +128,37 @@ public class MedicalVisit {
                 ", status='" + status + '\'' + // Include status in toString
                 '}';
     }
+
+
+    // Get all medical visits
+    public static List<MedicalVisit> getAllMedicalVisits() {
+        List<MedicalVisit> visits = new ArrayList<>(); // To store all medical visits
+        try {
+            // Ensure the collection is initialized
+            if (collection == null) {
+                MongoDatabase database = Singleton.getInstance().getDatabase();
+                collection = database.getCollection(COLLECTION_NAME);
+            }
+            // Fetch all documents
+            MongoCursor<Document> cursor = collection.find().iterator();
+            while (cursor.hasNext()) {
+                Document doc = cursor.next();
+                visits.add(new MedicalVisit(
+                        doc.getObjectId("_id").toString(),
+                        doc.getString("date"),
+                        doc.getString("time"),
+                        doc.getInteger("doctorId"),
+                        doc.getInteger("elderId"),
+                        doc.getString("status")
+                ));
+            }
+        } catch (Exception e) {
+            System.err.println("Error retrieving all medical visits: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return visits; // Return the list of visits
+    }
+
+
+
 }
