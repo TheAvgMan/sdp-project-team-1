@@ -3,6 +3,7 @@ package asu.eng.controllers;
 import asu.eng.models.Event;
 import asu.eng.models.EventExporter;
 import asu.eng.views.EventExporterView;
+import asu.eng.views.Printer;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -11,22 +12,26 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.nio.file.Paths;
 
 public class EventsExportUseCase {
-    private EventExporterView view;
+    private Printer view;
 
-    public EventsExportUseCase(EventExporterView view) {
+    public EventsExportUseCase(Printer view) {
         this.view = view;
     }
 
-    // Export event data to an Excel file
-    public void exportEventsToExcel(String filePath) {
+    public void exportEventsToExcel() {
         try {
+            // Dynamically determine the user's downloads directory
+            String userHome = System.getProperty("user.home");
+            String downloadsPath = Paths.get(userHome, "Downloads", "events_export.xlsx").toString();
+
             // Fetch events from the model
             List<Event> events = EventExporter.getAllEvents();
 
             if (events.isEmpty()) {
-                view.showMessage("No events to export.");
+                view.printMessage("No events to export.");
                 return;
             }
 
@@ -63,14 +68,14 @@ public class EventsExportUseCase {
             }
 
             // Save the Excel file
-            try (FileOutputStream fileOut = new FileOutputStream(filePath)) {
+            try (FileOutputStream fileOut = new FileOutputStream(downloadsPath)) {
                 workbook.write(fileOut);
-                view.showMessage("Events exported successfully to: " + filePath);
+                view.printMessage("Events exported successfully to: " + downloadsPath);
             } finally {
                 workbook.close();
             }
         } catch (IOException e) {
-            view.showError("Error saving Excel file: " + e.getMessage());
+            view.printMessage("Error saving Excel file: " + e.getMessage());
         }
     }
 

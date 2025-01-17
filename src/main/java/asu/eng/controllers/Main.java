@@ -6,10 +6,18 @@ import asu.eng.models.*;
 public class Main {
     public static void main(String[] args) {
 
-        Doctor doctor = new Doctor(1, "Dr. Smith");
 
+
+
+
+        
+        // Facade Export to excel ********************************
+//        Printer facadeprint = new Printer();
+//        EventsExportUseCase facadetest= new EventsExportUseCase(facadeprint);
+//        facadetest.exportEventsToExcel();
 
        // Command Pattern Test ********************
+//        Doctor doctor = new Doctor(1, "Dr. Smith");
 //        Scheduler scheduler = new Scheduler();
 //
 //        // Create a medical visit
